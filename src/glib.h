@@ -332,6 +332,8 @@ GSList *g_slist_prepend       (GSList        *list,
 			       gpointer       data);
 void    g_slist_free          (GSList        *list);
 void    g_slist_free_1        (GSList        *list);
+void    g_slist_free_full     (GSList        *list,
+			       GDestroyNotify free_func);
 GSList *g_slist_copy          (GSList        *list);
 GSList *g_slist_concat        (GSList        *list1,
 			       GSList        *list2);
