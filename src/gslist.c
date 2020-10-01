@@ -124,6 +124,17 @@ g_slist_free (GSList *list)
 	}
 }
 
+void
+g_slist_free_full (GSList *list, GDestroyNotify free_func)
+{
+	while (list) {
+		GSList *next = list->next;
+		(*free_func) (list->data);
+		g_slist_free_1 (list);
+		list = next;
+	}
+}
+
 GSList*
 g_slist_copy (GSList *list)
 {
