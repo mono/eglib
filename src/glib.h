@@ -389,6 +389,8 @@ GList *g_list_prepend       (GList         *list,
 			     gpointer       data);
 void   g_list_free          (GList         *list);
 void   g_list_free_1        (GList         *list);
+void   g_list_free_full     (GList         *list,
+			     GDestroyNotify free_func);
 GList *g_list_copy          (GList         *list);
 guint  g_list_length        (GList         *list);
 gint   g_list_index         (GList         *list,
