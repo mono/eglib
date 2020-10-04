@@ -81,6 +81,17 @@ g_list_free (GList *list)
 	}
 }
 
+void
+g_list_free_full (GList *list, GDestroyNotify free_func)
+{
+	while (list) {
+		GList *next = list->next;
+		(*free_func) (list->data);
+		g_list_free_1 (list);
+		list = next;
+	}
+}
+
 GList*
 g_list_append (GList *list, gpointer data)
 {
